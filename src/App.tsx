@@ -1,5 +1,11 @@
+import Editor from './components/Editor';
+
 function App() {
-  return <div className=''>Hello World</div>;
+  return (
+    <div>
+      <Editor />
+    </div>
+  );
 }
 
 export default App;

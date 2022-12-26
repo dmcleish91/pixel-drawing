@@ -7,7 +7,13 @@
   --black: #222831;
   --gray: #30475e;
   --white: #e2e8e8;
-  --red: #f05454;
+  --green: #00b47e;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 body {
@@ -26,9 +32,17 @@ body {
   margin-bottom: 2rem;
 }
 
-#editor {
-  border: 1px solid var(--red);
-  border-radius: 0.25rem;
+.pixel {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid rgb(204, 204, 204);
+}
+
+.pixel:hover {
+  cursor: pointer;
+}
+
+.editor-container {
   padding: 1rem 4rem 2rem 4rem;
   margin-top: 2rem;
 
@@ -56,27 +70,27 @@ h2 {
   flex-direction: column;
 }
 
-.panelInput {
+.panel-input {
   height: 5rem;
   width: 5rem;
   font-size: 2rem;
   text-align: center;
+  background-color: var(--black);
   color: var(--white);
   border: 1px solid var(--gray);
   border-radius: 0.25rem;
   margin: 0 1rem 0.5rem 1rem;
-  padding-left: 1rem;
 }
 
-.panelInput:focus {
+.panel-input:focus {
   outline: none !important;
-  border-color: var(--red);
+  border-color: var(--green);
   box-shadow: 0 0 0 0.5rem var(--gray);
 }
 
 .button {
   font-size: 1.25rem;
-  background-color: var(--red);
+  background-color: var(--green);
   color: var(--white);
   padding: 1rem 3rem;
   border-radius: 0.25rem;
@@ -89,7 +103,7 @@ h2 {
 .button:hover {
   cursor: pointer;
   background-color: transparent;
-  border-color: var(--red);
+  border-color: var(--green);
 }
 
 .circle-picker {

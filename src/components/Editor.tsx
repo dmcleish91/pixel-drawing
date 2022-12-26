@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CirclePicker, ColorResult } from 'react-color';
+import { motion, AnimatePresence } from 'framer-motion';
 import DrawingPanel from './DrawingPanel';
 
 const Editor = () => {
@@ -20,11 +21,13 @@ const Editor = () => {
   const colorChangeHandler = (color: ColorResult) => setSelectedColor(color.hex);
 
   return (
-    <div className='editor-container'>
-      <h1 className='font-bold text-2xl'>8-bit Sketch</h1>
+    <motion.div className='editor-container' layout transition={{ layout: { duration: 0.8, type: 'spring' } }}>
+      <motion.h1 className='font-bold text-2xl' layout>
+        8-bit Sketch
+      </motion.h1>
       {hideDrawingPanel && <h2 className='font-bold text-xl'>Enter Grid Dimensions</h2>}
       {hideDrawingPanel && (
-        <div id='options'>
+        <motion.div id='options' initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.4 } }} exit={{ opacity: 0 }}>
           <div className='option'>
             <input
               className='panel-input'
@@ -45,16 +48,17 @@ const Editor = () => {
             />
             <span>Height</span>
           </div>
-        </div>
+        </motion.div>
       )}
-      <button className='button' onClick={initializeDrawingPanel}>
-        {buttonText}
-      </button>
 
       {hideOptions && <CirclePicker color={selectedColor} onChange={(e) => colorChangeHandler(e)} />}
 
       {hideOptions && <DrawingPanel width={panelWidth} height={panelHeight} selectedColor={selectedColor} />}
-    </div>
+
+      <button className='button' onClick={initializeDrawingPanel}>
+        {buttonText}
+      </button>
+    </motion.div>
   );
 };
 

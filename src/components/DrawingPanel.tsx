@@ -1,6 +1,10 @@
 import Row from './Row';
 
-const DrawingPanel: React.FC<{ width: number; height: number; selectedColor: string }> = ({ width, height, selectedColor }) => {
+const DrawingPanel: React.FC<{ width: number; height: number; selectedColor: string }> = ({
+  width,
+  height,
+  selectedColor,
+}) => {
   const rows = [];
 
   for (let i = 0; i < height; i++) {
@@ -8,7 +12,7 @@ const DrawingPanel: React.FC<{ width: number; height: number; selectedColor: str
   }
 
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center mt-6'>
       <div>{rows}</div>
     </div>
   );

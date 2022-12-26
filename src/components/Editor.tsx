@@ -21,14 +21,21 @@ const Editor = () => {
   const colorChangeHandler = (color: ColorResult) => setSelectedColor(color.hex);
 
   return (
-    <motion.div className='editor-container' layout transition={{ layout: { duration: 0.8, type: 'spring' } }}>
-      <motion.h1 className='font-bold text-2xl' layout>
+    <motion.div
+      className='flex flex-col items-center mt-8 p-2'
+      layout
+      transition={{ layout: { duration: 0.8, type: 'spring' } }}>
+      <motion.h1 className='font-bold text-2xl mb-6' layout>
         8-bit Sketch
       </motion.h1>
-      {hideDrawingPanel && <h2 className='font-bold text-xl'>Enter Grid Dimensions</h2>}
+      {hideDrawingPanel && <h2 className='font-bold text-xl mb-4'>Enter Grid Dimensions</h2>}
       {hideDrawingPanel && (
-        <motion.div id='options' initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.4 } }} exit={{ opacity: 0 }}>
-          <div className='option'>
+        <motion.div
+          className='flex flex-row justify-center'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.4 } }}
+          exit={{ opacity: 0 }}>
+          <div className='flex flex-col'>
             <input
               className='panel-input'
               name='width'
@@ -38,7 +45,7 @@ const Editor = () => {
             />
             <span>Width</span>
           </div>
-          <div className='option'>
+          <div className='flex flex-col'>
             <input
               className='panel-input'
               name='height'
@@ -55,7 +62,9 @@ const Editor = () => {
 
       {hideOptions && <DrawingPanel width={panelWidth} height={panelHeight} selectedColor={selectedColor} />}
 
-      <button className='button' onClick={initializeDrawingPanel}>
+      <button
+        className='text-xl bg-lime-600 text-white border rounded border-transparent uppercase py-4 px-12 my-8 transition duration-200 ease-in-out hover:bg-transparent hover:border-lime-600'
+        onClick={initializeDrawingPanel}>
         {buttonText}
       </button>
     </motion.div>

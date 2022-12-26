@@ -23,7 +23,7 @@ const Pixel: React.FC<{ selectedColor: string }> = ({ selectedColor }) => {
 
   return (
     <div
-      className='pixel'
+      className='w-6 h-6 border border-slate-2s00'
       style={{ backgroundColor: pixelColor }}
       onClick={colorApplicationHandler}
       onMouseEnter={colorHoverHandler}
